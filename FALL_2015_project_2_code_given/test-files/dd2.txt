@@ -1,0 +1,13 @@
+// 2 transactions
+// generates a deadlock
+// will hang w/o deadlock resolution
+Log deadlock.log
+BeginTx 3 W
+BeginTx 1 W
+Write   3 2
+Read    1 1
+read    1 2
+Read    3 1
+commit  3
+Commit  1
+
